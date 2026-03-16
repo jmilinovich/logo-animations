@@ -36,7 +36,7 @@
 
   /* Eyes — driven by JS for blinks, squints, glances */
   .eye-left, .eye-right {
-    transition: transform 0.08s ease-in;
+    transition: transform 0.15s ease-in-out;
   }
   .eye-left  { transform-origin: 1576px 101px; }
   .eye-right { transform-origin: 2689px 101px; }
@@ -115,10 +115,10 @@
     eyeL.classList.add('blink');
     setTimeout(() => eyeR.classList.add('blink'), 30 + Math.random() * 40);
 
-    const openDelay = 80 + Math.random() * 70;
+    const openDelay = 180 + Math.random() * 120;
     setTimeout(() => {
       eyeL.classList.remove('blink');
-      setTimeout(() => eyeR.classList.remove('blink'), 20 + Math.random() * 30);
+      setTimeout(() => eyeR.classList.remove('blink'), 30 + Math.random() * 40);
     }, openDelay);
 
     // 20% double-blink
@@ -128,9 +128,9 @@
         setTimeout(() => eyeR.classList.add('blink'), 30 + Math.random() * 40);
         setTimeout(() => {
           eyeL.classList.remove('blink');
-          setTimeout(() => eyeR.classList.remove('blink'), 20 + Math.random() * 30);
-        }, 80 + Math.random() * 70);
-      }, 250);
+          setTimeout(() => eyeR.classList.remove('blink'), 30 + Math.random() * 40);
+        }, 180 + Math.random() * 120);
+      }, 400);
     }
   }
 
