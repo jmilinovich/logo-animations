@@ -1,0 +1,12 @@
+{
+  "name": "logo-animations",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    "./living-logo": "./src/living-logo.js",
+    "./living-logo.css": "./src/living-logo.css"
+  },
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}
