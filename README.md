@@ -9,6 +9,7 @@ logo-animations/
   1-living-logo.html    ← the main animation (standalone preview)
   2-draw-on.html        ← stroke-drawing entrance animation
   3-bounce-wink.html    ← bouncy entrance with wink
+  4-ascii.html          ← the wordmark in 3D, rendered as ASCII (three.js)
   README.md             ← this file
 ```
 
@@ -343,3 +344,23 @@ function nextEyeAction() {
 ```
 
 To make the mouth static, remove the `nextMouth` setTimeout call.
+
+---
+
+## ASCII (`4-ascii.html`)
+
+The wordmark as a 3D object drawn in text. The SVG paths are extruded with three.js, lit, rendered with WebGL, and converted to characters on every frame by three's `AsciiEffect` (`three/addons/effects/AsciiEffect.js`). It follows [this demo](https://webdev.teknium.io/d/dither/demos/three-ascii-effect/), with the logo in place of the torus knot.
+
+This is the one variant with a dependency. It loads three.js r186 from jsDelivr through an import map, so it needs a network connection unless the browser already has it cached. If three.js or WebGL is unavailable, the page shows the flat wordmark.
+
+| What | How |
+|------|-----|
+| Spin it | Drag. It coasts, then turns back to face you. |
+| Character set | `classic`, `dense`, `blocks`, `binary`, or `mili`, which uses the ramp ` .:ilm` so the logo is drawn in its own letters |
+| Tint | `phosphor`, `amber`, `ice`, `paper`, or `ink` (dark characters on white) |
+| Hide the controls | Press `h`, or load with `?hud=0` |
+| Link to a setup | `4-ascii.html?charset=mili&tint=ink` |
+
+The eyes and smile use the timings and the eleven moods from `src/living-logo.js`, and holding the logo triggers the hover reaction. With `prefers-reduced-motion` set, nothing moves by itself and dragging still turns it.
+
+To tune it, edit the constants in the script: `DEPTH` and `BEVEL` for the extrusion, the lights under `Scene`, `SWAY` and `NOD` for the idle motion, and `FIT` for how much of the stage the wordmark fills.

@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "4-ascii.html"
+        ],
+        "createdAt": "2026-11-11T05:25:14.111Z",
+        "reason": "agent: the phosphor text-shadow is the reference demo's own CRT bloom (webdev.teknium.io three-ascii-effect), which the user asked to reproduce; it is off on the paper ground. Not separately confirmed by the user."
+      }
+    ]
+  }
+}
